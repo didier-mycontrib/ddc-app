@@ -1,0 +1,17 @@
+[
+    {
+      "context" : [ "/news-api" ]  ,
+      "secure" : "false" ,
+      "target" : "http://localhost:8231" 
+    },
+	{
+      "context" : [ "/res-api" ]  ,
+      "secure" : "false" ,
+      "target" : "http://localhost:8231" 
+    },
+    {
+        "context" : [ "/user-api" ]  ,
+        "secure" : "false" ,
+        "target" : "http://localhost:8232" 
+        }
+]
