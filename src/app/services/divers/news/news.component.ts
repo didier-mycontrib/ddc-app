@@ -57,7 +57,7 @@ build_overview_cards_context_from_publications(tabPublications : Publication[]) 
 			
 			var imgSrc="./images/florilege.jpg"; //par defaut
 			if(this.notNullAndNotEmpty(tabPublications[i].fichier_image_name)){
-				imgSrc="/res-api/posts/images/" + tabPublications[i].fichier_image_name;
+				imgSrc="/res-api/public/posts/images/" + tabPublications[i].fichier_image_name;
 			}
 			var htmlWithImagePrefix = '<img src="'+imgSrc+'" class="maxOverviewSized" /> <br/>';
 			texte=htmlWithImagePrefix + texte;
@@ -69,7 +69,7 @@ build_overview_cards_context_from_publications(tabPublications : Publication[]) 
 				ctxCard.large_html_text = tabPublications[i].texte_complet;
 			}
 			else if(this.notNullAndNotEmpty(tabPublications[i].fichier_details_name)){
-				texte = '<a target="_blank" href="/res-api/posts/'+tabPublications[i].fichier_details_name+'">' + texte + '</a>';
+				texte = '<a target="_blank" href="/res-api/public/posts/'+tabPublications[i].fichier_details_name+'">' + texte + '</a>';
 			}
 			
 			ctxCard.texte= texte;

@@ -8,12 +8,12 @@ import { GenericRestCrudServiceWithUpload } from 'src/generic/service/generic-re
 })
 export class RessourceService extends GenericRestCrudServiceWithUpload<Ressource> {
   public settingUploadBaseUrl(): void {
-   this.uploadBaseUrl= "./res-api/private/upload-ressource";
+   this.uploadBaseUrl= "/res-api/private/upload-ressource";
   }
  
   public settingPublicAndPrivateBaseUrl(): void {
-    this.publicBaseUrl = "./res-api/public/ressource" ; //avec ng serve --proxy-config proxy.conf.json
-    this.privateBaseUrl = "./res-api/private/ressource" ;
+    this.publicBaseUrl = "/res-api/public/ressource" ; //avec ng serve --proxy-config proxy.conf.json
+    this.privateBaseUrl = "/res-api/private/ressource" ;
   }
 
   constructor(http : HttpClient) { 

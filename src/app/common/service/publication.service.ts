@@ -11,11 +11,11 @@ import { GenericRestCrudServiceWithUpload } from 'src/generic/service/generic-re
 export class PublicationService extends GenericRestCrudServiceWithUpload<Publication>{
   
   public settingUploadBaseUrl(): void {
-    this.uploadBaseUrl="./news-api/private/upload-publication";
+    this.uploadBaseUrl="/news-api/private/upload-publication";
   }
   public settingPublicAndPrivateBaseUrl(): void {
-    this.publicBaseUrl="./news-api/public/publication" ; //avec ng serve --proxy-config proxy.conf.json
-    this.privateBaseUrl="./news-api/private/publication" ; //avec ng serve --proxy-config proxy.conf.json
+    this.publicBaseUrl="/news-api/public/publication" ; //avec ng serve --proxy-config proxy.conf.json
+    this.privateBaseUrl="/news-api/private/publication" ; //avec ng serve --proxy-config proxy.conf.json
   }
  
   constructor(http : HttpClient) { 

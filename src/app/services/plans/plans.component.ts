@@ -29,7 +29,7 @@ export class PlansComponent implements OnInit {
         filter((res: Ressource)=> res.res_type=="pdf" 
                                   && res.res_categorie=="plan"
                                   && res.titre.toLowerCase().includes(this.filtre.toLowerCase()) ),
-        map( (res : Ressource) => { return new TitreHref(res.titre , "posts/"+res.res_fic_name); }),
+        map( (res : Ressource) => { return new TitreHref(res.titre , "/res-api/public/posts/"+res.res_fic_name); }),
         toArray()
       ).subscribe(plans=>{this.plans=plans; console.log(JSON.stringify(plans));});
 
