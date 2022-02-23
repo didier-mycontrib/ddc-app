@@ -1,13 +1,8 @@
 [
     {
-      "context" : [ "/news-api" ]  ,
-      "secure" : "false" ,
-      "target" : "http://localhost:8231" 
-    },
-	{
-      "context" : [ "/res-api" ]  ,
-      "secure" : "false" ,
-      "target" : "http://localhost:8231" 
+    "context" : [ "/qcm-api" ]  ,
+    "secure" : "false" ,
+    "target" : "http://localhost:8230" 
     },
     {
         "context" : [ "/user-api" ]  ,
