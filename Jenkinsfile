@@ -16,10 +16,9 @@ pipeline {
 		}
 		stage('copy ddc-app from ./ddc-app/dist to ./frontends-content') {
 			steps {
-			    echo 'rsync -av --delete ./ddc-app/dist/ddc-app ./frontends-content OK but rsync not found'
 			    ws("/conf-docker/frontends-angular/my-frontends") {
 				     sh('rm -r ./frontends-content/ddc-app')
-				     sh('cp -r ./resa-app/dist/ddc-app ./frontends-content')
+				     sh('cp -r ./ddc-app/dist/ddc-app ./frontends-content')
 				}
 			}
 		}
