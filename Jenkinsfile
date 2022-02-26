@@ -17,7 +17,7 @@ pipeline {
 		stage('copy ddc-app from ./ddc-app/dist to ./frontends-content') {
 			steps {
 			    ws("/conf-docker/frontends-angular/my-frontends") {
-				     sh('rm -r ./frontends-content/ddc-app')
+				     sh('rm -rf ./frontends-content/ddc-app')
 				     sh('cp -r ./ddc-app/dist/ddc-app ./frontends-content')
 				}
 			}
