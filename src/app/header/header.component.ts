@@ -41,8 +41,8 @@ export class HeaderComponent implements OnInit {
 children : [
   { label : "login" , path : "/ngr-login" },
   { divider : true },
-  { label : "admin-news" , path : "/ngr-admin-news"/*, role : "admin"*/ },
-  { label : "admin-ressources" , path : "/ngr-admin-ressources" /*, role : "admin"*/}
+  { label : "admin-news" , path : "/ngr-admin-news", role : "admin" },
+  { label : "admin-ressources" , path : "/ngr-admin-ressources" , role : "admin"}
 ]
 }
 

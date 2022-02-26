@@ -16,7 +16,7 @@ import { DisponibilitesComponent } from './activites/disponibilites/disponibilit
 import { ContactComponent } from './activites/contact/contact.component';
 import { PrestationsComponent } from './services/prestations/prestations.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
-import { CanActivatePublisherRouteGuard } from './common/gard/can-activate-route-guard';
+import { CanActivateAdminRouteGuard, CanActivatePublisherRouteGuard } from './common/gard/can-activate-route-guard';
 import { LoginComponent } from './admin/login/login.component';
 import { DiversComponent } from './services/divers/divers.component';
 import { AdminRessourcesComponent } from './admin/admin-ressources/admin-ressources.component';
@@ -47,8 +47,8 @@ const routes: Routes = [
   { path: 'ngr-contact', component: ContactComponent },
 
   { path: 'ngr-login', component: LoginComponent } ,
-  { path: 'ngr-admin-news', component: AdminNewsComponent , canActivate: [CanActivatePublisherRouteGuard] } ,
-  { path: 'ngr-admin-ressources', component: AdminRessourcesComponent , canActivate: [CanActivatePublisherRouteGuard] } ,
+  { path: 'ngr-admin-news', component: AdminNewsComponent , canActivate: [CanActivateAdminRouteGuard] } ,
+  { path: 'ngr-admin-ressources', component: AdminRessourcesComponent , canActivate: [CanActivateAdminRouteGuard] } ,
   
   { path: 'ngr-links', component: ExternalLinksComponent } ,
   { path: 'ngr-mentions-legales', component: MentionsLegalesComponent  }
