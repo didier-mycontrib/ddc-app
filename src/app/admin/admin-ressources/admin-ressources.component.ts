@@ -142,7 +142,8 @@ ngOnInit() {
     function pad(s:number) { return (s < 10) ? '0' + s : s; }
     return [d.getFullYear(), pad(d.getMonth()+1) ,pad(d.getDate()) ].join('-');
   }
-  handleResFileInput(files: FileList) {
+  handleResFileInput(evt:any) {
+    let files: FileList = evt.target!['files'];
     if(this.genericCrudContext.selectedObject==null)return;
     this.fileToUpload = files.item(0);
     this.genericCrudContext.selectedObject.res_fic_name=this.fileToUpload?.name as any; //.name , .size , .type

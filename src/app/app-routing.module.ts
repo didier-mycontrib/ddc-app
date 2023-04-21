@@ -16,13 +16,14 @@ import { DisponibilitesComponent } from './activites/disponibilites/disponibilit
 import { ContactComponent } from './activites/contact/contact.component';
 import { PrestationsComponent } from './services/prestations/prestations.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
-import { CanActivateAdminRouteGuard, CanActivatePublisherRouteGuard } from './common/gard/can-activate-route-guard';
+import { CanActivateAdminRouteGuard, CanActivatePublisherRouteGuard } from './common/guard/can-activate-route-guard';
 import { LoginComponent } from './admin/login/login.component';
 import { DiversComponent } from './services/divers/divers.component';
 import { AdminRessourcesComponent } from './admin/admin-ressources/admin-ressources.component';
 import { ExternalLinksComponent } from './footer/external-links/external-links.component';
 import { MentionsLegalesComponent } from './footer/mentions-legales/mentions-legales.component';
 import { QcmComponent } from './services/qcm/qcm.component';
+import { LogInOutComponent } from './log-in-out/log-in-out.component';
 
 const routes: Routes = [
   { path: 'ngr-welcome', component: WelcomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'ngr-contact', component: ContactComponent },
 
   { path: 'ngr-login', component: LoginComponent } ,
+  { path: 'ngr-logInOut', component: LogInOutComponent },
   { path: 'ngr-admin-news', component: AdminNewsComponent , canActivate: [CanActivateAdminRouteGuard] } ,
   { path: 'ngr-admin-ressources', component: AdminRessourcesComponent , canActivate: [CanActivateAdminRouteGuard] } ,
   

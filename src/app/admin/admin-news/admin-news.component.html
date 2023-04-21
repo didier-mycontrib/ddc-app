@@ -26,7 +26,7 @@
          <bsu-my-fg-label [label]="'image (facultative)'">
              <input type="file" class="form-control" 
                      id="f_imageFile" #f_imageFile
-                    (change)="handleImageFileInput($event.target!['files'])"/>
+                    (change)="handleImageFileInput($event)"/>
              {{genericCrudContext.selectedObject?.fichier_image_name}}
          </bsu-my-fg-label>
          
@@ -48,7 +48,7 @@
          <bsu-my-fg-label [label]="'Fichier (page) de détails'"
                           [style.display]="detailType=='file'?'block':'none'">
              <input type="file" class="form-control" 
-                    (change)="handleDetailFileInput($event.target!['files'])"
+                    (change)="handleDetailFileInput($event)"
                      id="f_detailsFile" #f_detailsFile />
              {{genericCrudContext.selectedObject?.fichier_details_name}}
          </bsu-my-fg-label>

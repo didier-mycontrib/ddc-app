@@ -37,6 +37,8 @@ import { MentionsLegalesComponent } from './footer/mentions-legales/mentions-leg
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyAuthInterceptor } from './common/interceptor/my-auth-interceptor';
 import { QcmComponent } from './services/qcm/qcm.component';
+import { LogInOutComponent } from './log-in-out/log-in-out.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { QcmComponent } from './services/qcm/qcm.component';
     ContactComponent,
     PrestationsComponent,
     LoginComponent,
+    LogInOutComponent,
     AdminNewsComponent,
     AdminRessourcesComponent,
     ExternalLinksComponent,
@@ -75,7 +78,8 @@ import { QcmComponent } from './services/qcm/qcm.component';
     TabsModule.forRoot(),BsDatepickerModule.forRoot(),
     CarouselModule.forRoot(),
     BsUtilModule,
-    GenericModule
+    GenericModule,
+    OAuthModule.forRoot()
   ],
     providers: [
       {

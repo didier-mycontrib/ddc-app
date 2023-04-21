@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuDefinition } from 'src/bs-util/data/MenuDefinition';
 import { AuthService } from '../common/service/auth.service';
+import { SessionService } from '../common/service/session.service';
 
 @Component({
   selector: 'app-header',
@@ -40,6 +41,7 @@ export class HeaderComponent implements OnInit {
 { label : "admin" , 
 children : [
   { label : "login" , path : "/ngr-login" },
+  { label : "logInOut" , path : "/ngr-logInOut" },
   { divider : true },
   { label : "admin-news" , path : "/ngr-admin-news", role : "admin" },
   { label : "admin-ressources" , path : "/ngr-admin-ressources" , role : "admin"}
@@ -48,7 +50,7 @@ children : [
 
 ];
 
-  constructor(public authService: AuthService) { }
+  constructor(public sessionService: SessionService) { }
 
   ngOnInit() {
   }

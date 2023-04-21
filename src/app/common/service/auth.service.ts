@@ -38,11 +38,11 @@ export class AuthService {
   private storeAuthResponseAndToken(authResponse : AuthResponse){
     if(authResponse.status){
         this.lastAuthResponse = authResponse;
-        sessionStorage.setItem("authToken",authResponse.token?authResponse.token:"");
+        sessionStorage.setItem("access_token",authResponse.token?authResponse.token:"");
     }
     else{ 
         this.lastAuthResponse = null;
-        sessionStorage.setItem("authToken","");
+        sessionStorage.setItem("access_token","");
     }
   }
 

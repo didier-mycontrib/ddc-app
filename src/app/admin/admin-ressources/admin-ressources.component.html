@@ -12,7 +12,7 @@
           <bsu-my-fg-label [label]="'ressource (fichier)'">
                 <input type="file" class="form-control" 
                         id="f_file" #f_file
-                       (change)="handleResFileInput($event.target!['files'])"/>
+                       (change)="handleResFileInput($event)"/>
                 {{genericCrudContext?.selectedObject?.res_fic_name}}
             </bsu-my-fg-label>
   

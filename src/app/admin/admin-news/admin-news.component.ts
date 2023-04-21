@@ -192,13 +192,15 @@ convertDate(d:Date) {
   }
 
 
-  handleImageFileInput(files: FileList) {
+  handleImageFileInput(evt:any) {
+    let files: FileList = evt.target!['files'];
     if(this.genericCrudContext.selectedObject==null)return;
     this.imageFileToUpload = files.item(0);
     this.genericCrudContext.selectedObject.fichier_image_name=this.imageFileToUpload?.name || ""; //.name , .size , .type
   } 
   
-  handleDetailFileInput(files: FileList) {
+  handleDetailFileInput(evt:any) {
+    let files: FileList = evt.target!['files'];
     if(this.genericCrudContext.selectedObject==null)return;
     this.detailFileToUpload = files.item(0);
     this.genericCrudContext.selectedObject.fichier_details_name=this.detailFileToUpload?.name || ""; //.name , .size , .type
