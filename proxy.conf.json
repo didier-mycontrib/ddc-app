@@ -1,12 +1,12 @@
 [
     {
-    "context" : [ "/qcm-api" ]  ,
-    "secure" : "false" ,
-    "target" : "http://localhost:8230" 
+    "context" : [ "/res-api" ]  ,
+    "secure" : false ,
+    "target" : "https://www.d-defrance.fr" 
     },
     {
         "context" : [ "/user-api" ]  ,
-        "secure" : "false" ,
-        "target" : "http://localhost:8232" 
+        "secure" : false ,
+        "target" : "https://www.d-defrance.fr" 
         }
 ]

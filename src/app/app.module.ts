@@ -39,6 +39,8 @@ import { MyAuthInterceptor } from './common/interceptor/my-auth-interceptor';
 import { QcmComponent } from './services/qcm/qcm.component';
 import { LogInOutComponent } from './log-in-out/log-in-out.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthConfig, OAuthErrorEvent, OAuthInfoEvent, OAuthService, OAuthSuccessEvent } from 'angular-oauth2-oidc';
 import { User } from '../data/user';
+import { Location } from '@angular/common';
 
 
 @Injectable({
@@ -21,7 +22,8 @@ export class SessionService {
   }
 
  
-  constructor(private oauthService: OAuthService , private router : Router) { 
+  constructor(private oauthService: OAuthService , private router : Router, private location: Location) { 
+        //Location with CommonModule in app.module.ts
         this.initOAuthServiceForCodeFlow();
         let sUser = sessionStorage.getItem("session.user");
         if(sUser) {
@@ -30,6 +32,8 @@ export class SessionService {
   }
 
   initOAuthServiceForCodeFlow(){
+  
+
     const authCodeFlowConfig: AuthConfig = {
       // Url of the Identity Provider
      
@@ -40,10 +44,10 @@ export class SessionService {
       // URL of the SPA to redirect the user to after login
       //redirectUri: window.location.origin + "/ngr-loggedIn",
 
-      silentRefreshRedirectUri: window.location.origin + "/silent-refresh.html",
+      silentRefreshRedirectUri: window.location.origin + this.location.prepareExternalUrl("/silent-refresh.html"),
       useSilentRefresh: true,
       
-      postLogoutRedirectUri : window.location.origin + "/ngr-logInOut", 
+      postLogoutRedirectUri : window.location.origin +  this.location.prepareExternalUrl("/ngr-logInOut"), 
       //ou /ngr-welcome ou ...
   
       // The SPA's id. The SPA is registered with this id at the auth-server
