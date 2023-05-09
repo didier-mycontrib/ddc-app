@@ -38,6 +38,7 @@ export class SessionService {
       // Url of the Identity Provider
      
 
+      //issuer: 'https://www.d-defrance.fr/keycloak/realms/sandboxrealm',
       issuer: 'https://www.d-defrance.fr/keycloak/realms/d2frealm',
    
   
@@ -51,7 +52,8 @@ export class SessionService {
       //ou /ngr-welcome ou ...
   
       // The SPA's id. The SPA is registered with this id at the auth-server
-      clientId: 'd2fclient',
+      //clientId: 'anywebappclient',
+     clientId: 'd2fclient',
       //clientSecret if necessary (not very useful for web SPA)
       //dummyClientSecret is required if client not public (client authentication: on + credential in keycloak)
 	  //dummyClientSecret: 'DMzPzIV2OQAphSbR84D7ebwxjrUNBgq5' ,
