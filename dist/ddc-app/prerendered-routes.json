@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "/": {},
+    "/ngr-admin-news": {},
+    "/ngr-admin-ressources": {},
+    "/ngr-contact": {},
+    "/ngr-cv": {},
+    "/ngr-disponibilites": {},
+    "/ngr-dom-competences": {},
+    "/ngr-exemples": {},
+    "/ngr-home": {},
+    "/ngr-login-out": {},
+    "/ngr-news": {},
+    "/ngr-not-authorized": {},
+    "/ngr-presentation": {},
+    "/ngr-prestations": {},
+    "/ngr-qcm": {},
+    "/ngr-realisations": {}
+  }
+}

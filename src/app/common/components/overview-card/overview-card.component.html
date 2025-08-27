@@ -1,0 +1,19 @@
+<my-card  title="{{title()}}">
+     @if(bigModalInnerHtmlText()){
+        <!-- a ulterieurement ouvrir plus tard dans modal 
+            (avec smallInnerHtmlText() comme texte du lien hypertexte)-->
+		 <div [innerHTML]="bigModalInnerHtmlText()"></div>
+     }
+   <!--  @else{ -->
+          <hr/>
+          <div  [innerHTML]="smallInnerHtmlText()"></div>
+    <!--} --> 
+			
+    @if(footer()){
+        <hr/>
+        <div class="card-footer"> 
+		   {{footer()}}
+		 </div> 
+    } 
+</my-card>
+

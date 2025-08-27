@@ -1,0 +1,12 @@
+[
+    {
+    "context" : [ "/res-api" ]  ,
+    "secure" : false , "changeOrigin" : true,
+    "target" : "https://www.d-defrance.fr"
+    },
+   {
+    "context" : [ "/news-api" ]  ,
+    "secure" : false , "changeOrigin" : true,
+    "target" : "https://www.d-defrance.fr"
+    }
+]

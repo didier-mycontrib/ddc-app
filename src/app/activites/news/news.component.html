@@ -1,0 +1,9 @@
+<h3>news</h3>
+     @for(ctxCard of contextCardsNews; track ctxCard ){
+        <app-overview-card 
+                            [title]="ctxCard.title"
+                            [smallInnerHtmlText]="ctxCard.texte"
+                            [bigModalInnerHtmlText]="ctxCard.large_html_text!"
+                            [footer]="ctxCard.footer??''">
+        </app-overview-card>
+     }
