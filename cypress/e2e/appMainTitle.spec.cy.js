@@ -5,7 +5,7 @@ describe('Main HTML/JS Tests', () => {
 
     //visiter page d'accueil.html
     //cy.visit("http://localhost:4200/index.html")
-    //cy.visit("http://localhost:4000/index.html")
+    //cy.visit("http://localhost:4001/index.html")
     //cy.visit("http://localhost:3000/index.html")
     cy.visit("http://localhost:3000/index.csr.html")
 

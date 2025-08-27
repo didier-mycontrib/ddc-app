@@ -14,7 +14,7 @@ COPY  package*.json  ./
 COPY .   .
 
 #setting ENV-VARIABLE
-ENV PORT=4000
+ENV PORT=4001
 
-EXPOSE 4000
+EXPOSE 4001
 CMD [ "npm", "run" , "serve:ssr:ddc-app" ]
