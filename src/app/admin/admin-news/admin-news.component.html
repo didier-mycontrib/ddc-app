@@ -1,8 +1,96 @@
-<p>admin-news works!</p>
-
 <generic-crud  [genericCrudContext]="genericCrudContext"
                [genericCrudService]="publicationService"
-               > <!-- [optionalSpecificSubFormTemplateRef]="qcmSpecificSubform" -->  
+               [optionalSpecificSubFormTemplateRef]="publicationSpecificSubform" 
+               [withUpload]="true"
+               (genericCrudStateChange)="onGenericCrudStateChange($event)">
 </generic-crud>
+
+<!--
+NB: subFormData as interface AbstractGenSubFormData
+with .mode ("newOne" or "existingOne") and .obj = object of form
+-->
+<ng-template #publicationSpecificSubform let-subFormData="subFormData" >
+    <div>
+        <!-- publicationSpecificSubform with mode = {{subFormData?.mode}} -->
+        <div class="flexRowWrap" > 
+            <label class="f-align">id:</label>
+            <div class="f-align">
+                 <label class="f-max-size  mb-1">{{subFormData.obj.id}}</label> 
+                <!-- <input name="id" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.id" />-->
+            </div>
+        </div>
+
+         <div class="flexRowWrap" > 
+            <label class="f-align">date:</label>
+            <div class="f-align">
+                <input name="date" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.date" />
+            </div>
+        </div>
+
+        <div class="flexRowWrap" > 
+            <label class="f-align">titre:</label>
+            <div class="f-align">
+                <input name="title" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.titre" />
+            </div>
+        </div>
+
+          <div class="flexRowWrap" > 
+            <label class="f-align">image:</label>
+            <div class="f-align">
+                <input type="file" name="fichier_image_name" class="f-max-size  mb-1" id="f_imageFile" #f_imageFile
+                (change)="handleImageFileInput($event)"  [(ngModel)]="subFormData.obj.fichier_image_name"/>
+                {{subFormData.obj.fichier_image_name}}
+            </div>
+        </div>
+
+        <div class="flexRowWrap" > 
+            <label class="f-align">Résumé:</label>
+            <div class="f-align">
+                <textarea rows="3" name="resume" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.resume" 
+                 (dblclick)="showSumUpInMessageDialog()" 
+                 placeholder="texte essentiel <b>avec eventuelle partie html</b>"></textarea>
+            </div>
+        </div>
+       
+        <div class="flexRowWrap" > 
+            <label class="f-align">type détail:</label>
+            <div class="f-align">
+                <input type="radio"  value="none" name="detailType" [(ngModel)]="detailType" (ngModelChange)="coherentDetails()" /> aucun &nbsp;&nbsp;
+                <input type="radio"  value="text"  name="detailType" [(ngModel)]="detailType" (ngModelChange)="coherentDetails()" /> texte développé (html simple)&nbsp;&nbsp;
+                <input type="radio"  value="file" name="detailType" [(ngModel)]="detailType" (ngModelChange)="coherentDetails()"/> fichier (.html, .pdf) &nbsp;&nbsp;
+                <input type="radio"  value="link"  name="detailType" [(ngModel)]="detailType" (ngModelChange)="coherentDetails()"  /> lien externe
+            </div>
+        </div>
+         
+        <div class="flexRowWrap" [style.display]="detailType=='link'?'block':'none'"> 
+            <label class="f-align">lien_externe:</label>
+            <div class="f-align">
+                <input name="lien_externe" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.lien_externe"
+                placeholder="exemple: http://site-externe.com/page-interessante.html" />
+            </div>
+        </div>
+
+        <div class="flexRowWrap" [style.display]="detailType=='text'?'block':'none'"> 
+            <label class="f-align">Texte complet:</label>
+            <div class="f-align">
+                <textarea rows="10" name="texte_complet" class="f-max-size  mb-1" 
+                          [(ngModel)]="subFormData.obj.texte_complet"
+                          placeholder="texte complet détaillé <b>avec eventuelle partie html</b>"
+                          (dblclick)="showTexteCommpletInMessageDialog()" ></textarea>
+            </div>
+        </div>
+
+         <div class="flexRowWrap" [style.display]="detailType=='file'?'block':'none'"> 
+            <label class="f-align">Fichier_détails:</label>
+            <div class="f-align">
+                <input type="file" name="fichier_details_name" class="f-max-size  mb-1" id="f_detailsFile" #f_detailsFile 
+                          (change)="handleDetailFileInput($event)" [(ngModel)]="subFormData.obj.fichier_details_name"/>
+                          {{subFormData.obj.fichier_details_name}}
+            </div>
+        </div>
+        
+    </div>
+  </ng-template>
+
 
        

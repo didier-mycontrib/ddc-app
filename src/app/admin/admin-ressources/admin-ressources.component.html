@@ -1,1 +1,71 @@
-<p>admin-ressources works!</p>
+<generic-crud  [genericCrudContext]="genericCrudContext"
+               [genericCrudService]="ressourceService"
+               [optionalSpecificSubFormTemplateRef]="ressourceSpecificSubform" 
+               [withUpload]="true"
+               (genericCrudStateChange)="onGenericCrudStateChange($event)">
+</generic-crud>
+
+<!--
+NB: subFormData as interface AbstractGenSubFormData
+with .mode ("newOne" or "existingOne") and .obj = object of form
+-->
+<ng-template #ressourceSpecificSubform let-subFormData="subFormData" >
+    <div>
+        <!-- publicationSpecificSubform with mode = {{subFormData?.mode}} -->
+        <div class="flexRowWrap" > 
+            <label class="f-align">id:</label>
+            <div class="f-align">
+                 <label class="f-max-size  mb-1">{{subFormData.obj.id}}</label> 
+                <!-- <input name="id" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.id" />-->
+            </div>
+        </div>
+
+
+        <div class="flexRowWrap" > 
+            <label class="f-align">titre:</label>
+            <div class="f-align">
+                <input name="title" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.titre" />
+            </div>
+        </div>
+
+          <div class="flexRowWrap" > 
+            <label class="f-align">ressource:</label>
+            <div class="f-align">
+                <input type="file" name="res_fic_name" class="f-max-size  mb-1" id="f_res_file" #f_res_file
+                (change)="handleResFileInput($event)" [(ngModel)]="subFormData.res_fic_name"/>
+                {{subFormData.obj.res_fic_name}}
+            </div>
+        </div>
+
+        <div class="flexRowWrap" > 
+            <label class="f-align">type:</label>
+            <div class="f-align">
+                 <select name="type" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.res_type" >
+                 @for(resType of resTypesSelectionnables; track resType){
+                        <option >{{resType}}</option>
+                   } 
+                </select>
+            </div>
+        </div>
+
+         <div class="flexRowWrap" > 
+            <label class="f-align">categorie:</label>
+            <div class="f-align">
+                 <select name="categorie" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.res_categorie" >
+                   @for(resCat of resCategoriesSelectionnables; track resCat){
+                        <option >{{resCat}}</option>
+                   } 
+                </select>
+            </div>
+        </div>
+
+          <div class="flexRowWrap" > 
+            <label class="f-align">date:</label>
+            <div class="f-align">
+                <input name="date" class="f-max-size  mb-1" [(ngModel)]="subFormData.obj.date" />
+            </div>
+        </div>
+    
+        
+    </div>
+  </ng-template>
